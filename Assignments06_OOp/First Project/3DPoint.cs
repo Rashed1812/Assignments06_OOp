@@ -41,13 +41,16 @@ namespace Assignments06_OOp.First_Project
 
         }
         #endregion
+
+        #region Override ToString()
         public override string ToString()
         {
-           return $"Point Coordinates:{x},{y},{z}";
-        }
+            return $"Point Coordinates:{x},{y},{z}";
+        } 
+        #endregion
 
         #region 3.Read from the User the Coordinates for 2 points P1, P2 (Check the input using try Pares, Parse, Convert).
-        
+
         public static _3DPoint Read3DPoint()
         {
             int x, y, z;
