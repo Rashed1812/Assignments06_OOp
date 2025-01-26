@@ -1,5 +1,6 @@
 ﻿using Assignments06_OOp.First_Project;
 using Assignments06_OOp.Second_Project;
+using Assignments06_OOp.Third_Project;
 
 namespace Assignments06_OOp
 {
@@ -7,6 +8,8 @@ namespace Assignments06_OOp
     {
         static void Main(string[] args)
         {
+            #region Project One
+
             #region 2.Override the ToString Function to produce this output:
 
             //_3DPoint p = new _3DPoint(10, 10, 10);
@@ -51,9 +54,12 @@ namespace Assignments06_OOp
 
             #endregion
 
-            Maths m = new Maths();
+            #endregion
+
+            #region Project two
 
             #region 1.Define Class Maths that has four methods By Object:
+            //Maths m = new Maths();
             //Console.WriteLine(m.Add(1 , 2));
             //Console.WriteLine(m.Subtract(10 , 5));
             //Console.WriteLine(m.Multiply(3 , 10));
@@ -61,10 +67,41 @@ namespace Assignments06_OOp
             #endregion
 
             #region 2.Modify the program so that you do not have to create an instance of class to call the four methods.
-            Console.WriteLine(Maths.Add(1, 2));
-            Console.WriteLine(Maths.Subtract(10, 5));
-            Console.WriteLine(Maths.Multiply(3, 10));
-            Console.WriteLine(Maths.Divide(10, 2)); 
+            //Console.WriteLine(Maths.Add(1, 2));
+            //Console.WriteLine(Maths.Subtract(10, 5));
+            //Console.WriteLine(Maths.Multiply(3, 10));
+            //Console.WriteLine(Maths.Divide(10, 2)); 
+            #endregion
+
+            #endregion
+
+            #region Project Three
+
+            Console.WriteLine("Enter user type (Regular, Permium, Guest) ");
+
+            string usertype = Console.ReadLine();
+
+            User user = usertype.ToLower() switch
+            {
+            	"regular" => new RegularUser(),
+            	"permium"=> new PerimumUser(),
+            	"guest"=> new Guestuser(),
+            	_ => throw new Exception("invalid")
+            };
+
+            Console.WriteLine("Enter product price");
+            decimal price= decimal.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter product quantity");
+            int quantity= int.Parse(Console.ReadLine());
+
+            Discount discount = user.GetDiscount();
+            decimal Discountamount= discount.CalculateDiscount(price, quantity);
+            decimal finalprice = (price * quantity) - Discountamount;
+
+            Console.WriteLine($"Discount Amount Is {Discountamount}");
+            Console.WriteLine($"Final Price Is {finalprice}");
+
             #endregion
         }
     }
