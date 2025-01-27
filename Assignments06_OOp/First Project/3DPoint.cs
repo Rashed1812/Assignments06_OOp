@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignments06_OOp.First_Project
 {
-    internal class _3DPoint
+    internal class _3DPoint : IComparable
     {
         #region Attributes
 
